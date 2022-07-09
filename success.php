@@ -23,9 +23,9 @@ if (isset($_GET['orderid']) && $_GET['orderid'] == 'order') {
     font-size: 17px;
 }
 </style>
-<form action="" method="post">
-    <div class="main">
-        <div class="content">
+<form action="" method="post" style="padding: 10px">
+   
+        <div class="main_success">
             <div class="section group">
                 <h2 class="success_order">Đặt hàng thành công </h2>
                 <?php
@@ -40,15 +40,15 @@ if (isset($_GET['orderid']) && $_GET['orderid'] == 'order') {
                     }
 
                 ?>
-                <p class="success_note">Tổng số tiền mà bạn đã đặt mua sản phẩm của website chúng tôi trong thời gian vừa qua là : <?php $vat = $amount * 0.1; 
+                <p class="success_note">Tổng số tiền mà bạn đã đặt mua sản phẩm của website chúng tôi trong thời gian vừa qua là : <span style="color:red"><?php $vat = $amount * 0.1; 
                     $total = $vat + $amount;
                     echo number_format($total).' VNĐ';
-                ?> </p>
+                ?></span> </p>
                 <p class="success_note">Chúng tối sẽ liên lạc với bạn sớm nhất có thể. bạn có thể xem lại đơn hàng của mình <a href="orderdetails.php">xem lại đơn hàng</a></p>
             </div>
         </div>
 
-    </div>
+   
 </form>
 <?php
 include('inc/footer.php');

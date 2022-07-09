@@ -24,13 +24,13 @@ if ($login_check == false) {
 <div class="main">
     <div class="content">
         <div class="section group">
-        <div class="content_top">
-    		<div class="heading">
-    		<h3>Thông tin cá nhân</h3>
-    		</div>
-    		<div class="clear"></div>
-    	</div>
-           
+            <div class="content_top">
+                <div class="heading">
+                    <h3>Thông tin cá nhân</h3>
+                </div>
+                <div class="clear"></div>
+            </div>
+
             <table class="tblone">
                 <?php 
                 $id = Session::get('customer_id');
@@ -71,10 +71,10 @@ if ($login_check == false) {
                     <td><?php echo $result['phone'] ?></td>
                 </tr>
                 <tr>
-                    <td colspan="3"><a href="editprofile.php">Chỉnh sửa Thông tin cá nhân</a></td>
-                    
+                    <td  colspan="3"><a href="editprofile.php">Chỉnh sửa Thông tin cá nhân</a></td>
+
                 </tr>
-               
+
                 <?php }
                     } ?>
             </table>

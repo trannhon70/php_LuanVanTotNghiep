@@ -493,7 +493,7 @@ class category
     //hiển thị số sản phẩm mới nhất
     public function getproduct_new()
     {
-        $sp_tungtrang =20;
+        $sp_tungtrang =12;
         if(!isset($_GET['trang'])){
             $trang =1;
         }else{
@@ -547,6 +547,7 @@ class category
         $insert_cart = $this->db->insert($query_insert);
         if ($result) {
             header('Location:cart.php');
+            // header("location: cart.php",  true,  301 );  exit;
         } else {
             header('Location:404.php');
         }
@@ -640,7 +641,7 @@ class category
         return $result;
     }
 
-    //hiển thị danh mục ngoài trang chủ
+    //hiển thị danh mục ngoài trang detail
     public function show_category_fontend()
     {
         $query = "SELECT * FROM tbl_category order by catid desc";

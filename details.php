@@ -43,18 +43,23 @@ if(isset($_POST['binhluan_submit'])){
                     <img src="admin/uploads/<?php echo $result_details['hinhanh']; ?>" alt="..." />
                 </div>
                 <div class="desc span_3_of_2">
-                    <h2><?php echo $result_details['productName'] ?> </h2>
-                    <p><?php echo $result_details['catName'] ?></p>
-                    <div class="price">
-                        <p>Giá: <span><?php echo number_format($result_details['price']) . " " . "VNĐ" ?></span></p>
-                        <p>Thương hiệu:<span><?php echo $result_details['brandName'] ?></span></p>
+                    <div class="css_danhmuc">
+                        Danh mục: <span><?php echo $result_details['catName'] ?></span>
+                    </div>
+                    <div class="css_danhmuc">
+                        Thương hiệu: <span><?php echo $result_details['brandName'] ?></span>
+                    </div>
+                    <div class="css_danhmuc">
+                        Tên sản phẩm: <span> <?php echo $result_details['productName'] ?></span>
+                    </div>
+                    <div class="css_danhmuc">
+                        Giá: <span><?php echo number_format($result_details['price']) . " " . "VNĐ" ?></span>
                     </div>
                     <div class="add-cart">
                         <form action="" method="post">
                             <input type="text" readonly="readonly" class="buyfield" name="quantity" value="1" min="1"
                                 max="10" />
                             <input type="submit" class="buysubmit" name="submit" value="Thêm vào giỏ hàng" />
-
                         </form>
                         <?php
 								if (isset($AddtoCart)) {
@@ -88,30 +93,63 @@ if(isset($_POST['binhluan_submit'])){
 										?>
                             </div>
                         </form>
-
-                        <!-- danh sách yêu thích -->
-
                     </div>
                 </div>
+                <!-- mô tả chi tiết sản phẩm -->
                 <div class="product-desc">
-                    <h2>Mô tả chi tiết </h2>
-                    <p><?php echo $result_details['product_desc'] ?></p>
-
+                    <div class="MoTaChiTiet">Mô tả chi tiết sản phẩm </div>
+                    <div class="MoTaChiTiet_content"><?php echo $result_details['product_desc'] ?></div>
                 </div>
+                <!-- bình luận sản phẩm -->
+                <div class="binhluan_container" >
+                    <div id="style-1" class="binhluan_scroll" >
+                    <div class="show_binhLuan">
+                         <div>
+                         <?php 
+                        if(isset($binhluan_insert)){
+                            echo $binhluan_insert;
+                        }
+                    ?>
+                         </div>               
+                        <?php 
+                        $cat = new category();
+                        $get_binhluan = $cat->show_binhluan_UI($id);
+                        if($get_binhluan){
+                            while($result_binhluan = $get_binhluan->fetch_assoc()){                   
+                    ?>
+                        <div class="show_binhLuan_noidung">
+                            <div class="show_binhLuan_noidung_ten "><?php echo $result_binhluan['tenbinhluan'] ?> <span>đã bình luận: </span>
+                            </div>
+                            <div class="show_binhLuan_noidung_chitiet"><?php echo $result_binhluan['binhluan'] ?></div>
+                        </div> <br/>
+                        <?php }
+                    } ?>
+                    
+                    </div>
+                    </div>                  
+                    <div class="binhluan">                       
+                        <form action="" method="post">
+                            <input  type="hidden" value="<?php echo $id ?>" name="product_id_binhluan">
+                            <input class="binhluan_ten" type="text" placeholder="Tên của bạn" name="tennguoibinhluan">
+                            <input class="binhluan_noidung" name="binhluan" rows="5" style="resize: none;" placeholder="Đánh giá của bạn"></input>
+                            <input class="binhluan_button" type="submit" name="binhluan_submit" value="Gửi">
 
+                        </form>
+                    </div>
+                </div>
             </div>
             <?php }
 			} ?>
             <div class="rightsidebar span_3_of_1">
-                <h2>Danh mục</h2>
+                <div class="MoTaChiTiet">Danh mục</div>
                 <ul>
                     <?php
 					$getall_category = $cat->show_category_fontend();
 					if ($getall_category) {
 						while ($result_allcat = $getall_category->fetch_assoc()) {
-
 					?>
-                    <li><a
+                    <li>
+                        <a
                             href="productbycat.php?catid=<?php echo $result_allcat['catid']; ?>"><?php echo $result_allcat['catName']; ?></a>
                     </li>
                     <?php }
@@ -120,35 +158,7 @@ if(isset($_POST['binhluan_submit'])){
 
             </div>
         </div>
-        <div>
-            <?php 
-						$cat = new category();
-						$get_binhluan = $cat->show_binhluan_UI($id);
-						if($get_binhluan){
-							while($result_binhluan = $get_binhluan->fetch_assoc()){
 
-							
-					?>
-            <div>tên người bình luận : <?php echo $result_binhluan['tenbinhluan'] ?></div>
-            <div>Nội dung : <?php echo $result_binhluan['binhluan'] ?></div>
-            <?php }
-						} ?>
-        </div>
-        <div class="binhluan">
-
-            <?php 
-				if(isset($binhluan_insert)){
-					echo $binhluan_insert;
-				}
-			?>
-            <form action="" method="post">
-                <input type="hidden" value="<?php echo $id ?>" name="product_id_binhluan">
-                <p><input type="text" placeholder="Tên của bạn" class="form-control" name="tennguoibinhluan"> </p><br>
-                <p><textarea name="binhluan" rows="5" style="resize: none;" placeholder="Đánh giá của bạn"
-                        class="form-control"></textarea></p>
-                <p><input type="submit" name="binhluan_submit" value="Gửi bình luận" class="btn-success mt-3"></p>
-            </form>
-        </div>
     </div>
     <?php
 	include('inc/footer.php');

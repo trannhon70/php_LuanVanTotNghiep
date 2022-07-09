@@ -15,7 +15,7 @@
 
 							
 					?>
-					<li><img src="admin/uploads/<?php echo $result_slider['slider_hinhanh'] ?>" alt="" /></li>
+					<li><img style="object-fit:cover" src="admin/uploads/<?php echo $result_slider['slider_hinhanh'] ?>" alt="" /></li>
 					<?php }
 						} ?>
 				</ul>

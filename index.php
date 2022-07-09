@@ -18,7 +18,7 @@ include('inc/slider.php');
 				while ($result = $product_feathered->fetch_assoc()) {
 			?>
 					<div class="grid_1_of_4 images_1_of_4" style="width:23.8%;">
-						<a href="preview.html"><img src="admin/uploads/<?php echo $result['hinhanh'] ?>" alt="..." height="120px" /></a>
+						<a href="#"><img src="admin/uploads/<?php echo $result['hinhanh'] ?>" alt="..." height="120px" /></a>
 						<h2><?php echo $result['productName'] ?> </h2>
 						<p><?php echo $fm->textShorten($result['product_desc'], 50) ?></p>
 						<p><span class="price"><?php echo number_format($result['price']) . " " . "VNĐ" ?></span> </p>
@@ -42,7 +42,7 @@ include('inc/slider.php');
 				while ($result_new = $product_new->fetch_assoc()) {
 			?>
 					<div class="grid_1_of_4 images_1_of_4" style="width:23.8%;">
-						<div style="height: 120px;"><a href="preview.html"><img src="admin/uploads/<?php echo $result_new['hinhanh'] ?>" alt="..." height="100%" /></a></div>
+						<a href="#"><img src="admin/uploads/<?php echo $result_new['hinhanh'] ?>" alt="..." height="100%" /></a>
 						<h2><?php echo $result_new['productName'] ?> </h2>
 						<p><?php echo $fm->textShorten($result_new['product_desc'], 50) ?></p>
 						<p><span class="price"><?php echo number_format($result_new['price']) . " " . "VNĐ" ?></span> </p>
@@ -51,13 +51,13 @@ include('inc/slider.php');
 			<?php }
 			} ?>
 		</div>
-		<div style="text-align: center; margin-top: 20px;">
+		<div class="phanTrang" >
 			<?php
 			$get_all_product = $cat->get_all_product();
 			$product_count = mysqli_num_rows($get_all_product);
-			$product_button = ceil($product_count / 20);
+			$product_button = ceil($product_count / 12);
 			$i = 1;
-			echo '<p class="p">Trang : </p>';
+			echo '<p style="color:red;" class="p">Trang : </p>';
 			for ($i = 1; $i <= $product_button; $i++) {
 				echo '<a class="btn-success" href="index.php?trang=' . $i . '">' . $i . ' </a>';
 			}
@@ -66,30 +66,11 @@ include('inc/slider.php');
 	</div>
 </div>
 <style type="text/css">
-	a.btn-success {
-		border-radius: 3px;
-		padding: 3px 5px;
-		margin-left: 10px;
-		text-decoration: none;
-		background-color: #888f89;
-		font-size: 21px;
-		text-align: center;
-	}
+	
 
-	a.btn-success:hover {
-		background-color: #51c561;
-	}
+	
 
-	a.btn-success:active {
-		background-color: #333;
-		border-color: #333;
-		color: #eee;
-	}
-
-	p.p {
-		float: left;
-		font-size: 20px;
-	}
+	
 </style>
 <?php
 include('inc/footer.php');

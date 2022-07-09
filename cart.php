@@ -96,8 +96,8 @@ if (!isset($_GET['id'])) {
 							<td colspan="3">giá sản phẩm đã bao gồm thuế VAT</td>
 						</tr> -->
 						<tr>
-							<th>Tổng số tiền phải thanh toán :</th>
-							<td><?php
+							<th >Tổng số tiền phải thanh toán :</th>
+							<td class="Cart_ThanhToan"><?php
 								// $vat = $subtotal * 0.1;
 								// $gtotal = $subtotal + $vat;
 								echo number_format($subtotal) . " " . "VNĐ";
@@ -110,10 +110,11 @@ if (!isset($_GET['id'])) {
 			</div>
 			<div class="shopping">
 				<div class="shopleft">
-					<a href="index.php"> <img src="images/shop.png" alt="" /></a>
+					<a class="tieptucMS" href="index.php"> Tiếp tục mua sắm</a>
+					<a class="tieptucMS" href="payment.php">Tiến hành thanh toán</a>
 				</div>
 				<div class="shopright">
-					<a href="payment.php"> <img src="images/check.png" alt="" /></a>
+					
 				</div>
 			</div>
 		</div>

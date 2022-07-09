@@ -41,7 +41,7 @@ include('inc/header.php');
 								<td><img src="admin/uploads/<?php echo $result['hinhanh'] ?>" alt="" /></td>
 								<td><?php echo number_format($result['price']) . " " . "VNĐ" ?></td>
 
-								<td><a  href="details.php?proid=<?php echo $result['productid'] ?>">Xem chi tiết</a></td>
+								<td><a   href="details.php?proid=<?php echo $result['productid'] ?>">Xem chi tiết</a></td>
 							</tr>
 
 					<?php
@@ -53,7 +53,7 @@ include('inc/header.php');
 			</div>
 			<div class="shopping">
 				<div class="shopleft">
-					<a href="index.php"> <img src="images/shop.png" alt="" /></a>
+					<a class="tieptucMS" href="index.php"> Tiếp tục mua sắm</a>
 				</div>
 				<!-- <div class="shopright">
 					<a href="payment.php"> <img src="images/check.png" alt="" /></a>

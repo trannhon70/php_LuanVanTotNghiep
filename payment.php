@@ -20,52 +20,17 @@ if ($login_check == false) {
 // 	 $AddtoCart = $cat->add_to_cart($quantity,$id);
 // }
 ?>
-<style>
-	h3.payment {
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: underline;
-	}
-	.wrapper_method {
-	text-align: center;
-    width: 550px;
-    margin: 0 auto;
-    border: 1px solid #666;
-    padding: 20px;
-    /* margin: 20px; */
-    background: cornsilk;
-	}
-	.wrapper_method a {
-    padding: 10px;
-  
-    background: red;
-    color: #fff;
-    
-	}
-	.wrapper_method h3 {
-   	 margin-bottom: 20px;
-	}
-</style>
-<div class="main">
-    <div class="content">
-        <div class="section group">
-            <div class="content_top">
-                <div class="heading">
-                    <h3>phương thức thanh toán</h3>
-                </div>
-                <div class="clear"></div>
-                <div class="wrapper_method">
-                    <h3>Chọn phương thức để thanh toán</h3>
-                    <a href="offlinepayment.php">Thanh toán khi nhận hàng</a>
-                    <a href="onlinepayment.php">Thanh toán online</a><br><br><br>
-                    <a style="background:grey" href="cart.php"> << Quay lại</a>
-                </div>
 
-            </div>
-
-
-        </div>
+<div class="main_payment">
+    <div class="heading_payment">
+        <h3>Phương thức thanh toán</h3>
+</div>
+    <div class="wrapper_method_payment">
+        <h3>Chọn phương thức để thanh toán</h3><br />
+        <a href="offlinepayment.php">Thanh toán khi nhận hàng</a>
+        <a href="onlinepayment.php">Thanh toán online</a><br><br>
+        <a href="cart.php">
+             Quay lại</a>
     </div>
 </div>
 <?php

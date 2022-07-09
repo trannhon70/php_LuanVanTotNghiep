@@ -28,24 +28,6 @@ if (isset($_GET['orderid']) && $_GET['orderid']=='order') {
     float: right;
     padding: 4px;
 }
-
-a.submit_order {
-    background: #1d9731;
-    padding: 7px 20px;
-    color: #fff;
-    font-size: 21px;
-
-    cursor: pointer;
-}
-
-a.submit_order:hover {
-    background: #11521b;
-    padding: 7px 20px;
-    color: #fff;
-    font-size: 21px;
-
-    cursor: pointer;
-}
 </style>
 <form action="" method="post">
     <div class="main">

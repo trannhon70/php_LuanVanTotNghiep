@@ -25,24 +25,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['save'])) {
 <div class="main">
     <div class="content">
         <div class="section group">
-        <div class="content_top">
-    		<div class="heading">
-    		<h3>Chỉnh sửa thông tin cá nhân </h3>
-    		</div>
-    		<div class="clear"></div>
-    	</div>
-           <form action="" method="post">
-            <table class="tblone">
-                <tr>
-                    
+            <div class="content_top">
+                <div class="heading">
+                    <h3>Chỉnh sửa thông tin cá nhân </h3>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <form action="" method="post">
+                <table class="tblone">
+                    <tr>
+
                         <?php 
                             if(isset($updateCustomer)){
                                 echo '<td colspan="3">'.$updateCustomer.'</td>';
                             }
                         ?>
-                    
-                </tr>
-                <?php 
+
+                    </tr>
+                    <?php 
                 $id = Session::get('customer_id');
                     $get_customers = $cat->show_customer($id);
                     if($get_customers){
@@ -50,50 +50,66 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['save'])) {
 
                         
                 ?>
-                <tr>
-                    <td>Họ và tên</td>
-                    <td>:</td>
-                    <td><input style="color: black; padding: 3px 5px;font-weight: 600;width:50%;" type="text" name="name" value="<?php echo $result['name'] ?>"> </td>
-                    
-                </tr>
-                <tr>
-                    <td>Thành phố hoặc tỉnh</td>
-                    <td>:</td>
-                    <td><input style="color: black; padding: 3px 5px;font-weight: 600; width:50%;" type="text" name="city" value="<?php echo $result['city'] ?>"> </td>
-                    
-                </tr>
-                <tr>
-                    <td>Mã thành phố hoặc tỉnh</td>
-                    <td>:</td>
-                    <td><input style="color: black; padding: 3px 5px;font-weight: 600;width:50%;" type="text" name="zipcode" value="<?php echo $result['zipcode'] ?>"> </td>
-                    
-                </tr>
-                <tr>
-                    <td>Địa chỉ</td>
-                    <td>:</td>
-                    <td><input style="color: black; padding: 3px 5px;font-weight: 600;width:50%;" type="text" name="address" value="<?php echo $result['address'] ?>"> </td>
-                    
-                </tr>
-                <tr>
-                    <td>Email</td>
-                    <td>:</td>
-                    <td><input style="color: black; padding: 3px 5px;font-weight: 600;width:50%;" type="email" name="email" value="<?php echo $result['email'] ?>"> </td>
-                    
-                </tr>
-                <tr>
-                    <td>Số điện thoại</td>
-                    <td>:</td>
-                    <td><input style="color: black; padding: 3px 5px;font-weight: 600;width:50%;" type="number" name="phone" value="<?php echo $result['phone'] ?>"> </td>
-                    
-                </tr>
-                <tr>
-                    <td colspan="3"><button type="submit" name="save" >Lưu Thông tin cá nhân</button></td>
-                    
-                </tr>
-               
-                <?php }
+                    <tr>
+                        <td>Họ và tên</td>
+                        <td>:</td>
+                        <td><input
+                                style="color: black; padding: 3px 5px;font-weight: 600;width:50%; border-radius:10px ; border: 1px solid white ; background:var(--background-header); "
+                                type="text" name="name" value="<?php echo $result['name'] ?>"> </td>
+
+                    </tr>
+                    <tr>
+                        <td>Thành phố hoặc tỉnh</td>
+                        <td>:</td>
+                        <td><input
+                                style="color: black; padding: 3px 5px;font-weight: 600;width:50%; border-radius:10px ; border: 1px solid white; background:var(--background-header);"
+                                type="text" name="city" value="<?php echo $result['city'] ?>"> </td>
+
+                    </tr>
+                    <tr>
+                        <td>Mã thành phố hoặc tỉnh</td>
+                        <td>:</td>
+                        <td><input
+                                style="color: black; padding: 3px 5px;font-weight: 600;width:50%; border-radius:10px ; border: 1px solid white ; background:var(--background-header);"
+                                type="text" name="zipcode" value="<?php echo $result['zipcode'] ?>"> </td>
+
+                    </tr>
+                    <tr>
+                        <td>Địa chỉ</td>
+                        <td>:</td>
+                        <td><input
+                                style="color: black; padding: 3px 5px;font-weight: 600;width:50%; border-radius:10px ; border: 1px solid white ;background:var(--background-header);"
+                                type="text" name="address" value="<?php echo $result['address'] ?>"> </td>
+
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>:</td>
+                        <td><input
+                                style="color: black; padding: 3px 5px;font-weight: 600;width:50%; border-radius:10px ; border: 1px solid white; background:var(--background-header);"
+                                type="email" name="email" value="<?php echo $result['email'] ?>"> </td>
+
+                    </tr>
+                    <tr>
+                        <td>Số điện thoại</td>
+                        <td>:</td>
+                        <td><input
+                                style="color: black; padding: 3px 5px;font-weight: 600;width:50%; border-radius:10px ; border: 1px solid white; background:var(--background-header);"
+                                type="number" name="phone" value="<?php echo $result['phone'] ?>"> </td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="3"><button style="background-color: var(--background-button);
+                            border: none;color: white;
+                            border-radius: 10px;padding: 5px 10px;
+                            cursor: pointer;" type="submit" name="save">Lưu Thông tin cá nhân</button>
+                        </td>
+
+                    </tr>
+
+                    <?php }
                     } ?>
-            </table>
+                </table>
             </form>
         </div>
     </div>

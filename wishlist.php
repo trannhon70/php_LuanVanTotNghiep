@@ -54,7 +54,7 @@ include('inc/header.php');
 			</div>
 			<div class="shopping">
 				<div class="shopleft">
-					<a href="index.php"> <img src="images/shop.png" alt="" /></a>
+				<a class="tieptucMS" href="index.php"> Tiếp tục mua sắm</a>
 				</div>
 				<!-- <div class="shopright">
 					<a href="payment.php"> <img src="images/check.png" alt="" /></a>
